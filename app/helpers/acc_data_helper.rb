@@ -1,0 +1,2 @@
+module AccDataHelper
+end

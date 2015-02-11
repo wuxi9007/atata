@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  android_id: MyString
+  time_stamp: MyString
+  x: 1.5
+  'y': 1.5
+  z: 1.5
+  note: MyString
+
+two:
+  android_id: MyString
+  time_stamp: MyString
+  x: 1.5
+  'y': 1.5
+  z: 1.5
+  note: MyString

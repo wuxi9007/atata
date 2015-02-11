@@ -4,9 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-group :development do
-	gem 'sqlite3', '1.3.10'
-end
+gem 'mysql2'
+gem 'thin'
 
 # Use SCSS for stylesheets
 group :assets do
@@ -38,6 +37,10 @@ end
 group :production do
 	gem 'pg', '0.12.2'
 end
+gem 'bootstrap-sass',             '~> 2.3.1.0'
+gem 'bootstrap-colorpicker-rails'
+gem 'bootstrap-datetimepicker-rails'
+gem 'therubyracer'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

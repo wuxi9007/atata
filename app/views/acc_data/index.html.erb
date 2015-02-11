@@ -1,0 +1,37 @@
+<h1>Listing acc_data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Android</th>
+      <th>Time stamp</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acc_data.each do |acc_datum| %>
+      <tr>
+        <td><%= acc_datum.android_id %></td>
+        <td><%= acc_datum.time_stamp %></td>
+        <td><%= acc_datum.x %></td>
+        <td><%= acc_datum.y %></td>
+        <td><%= acc_datum.z %></td>
+        <td><%= acc_datum.note %></td>
+        <td><%= link_to 'Show', acc_datum %></td>
+        <td><%= link_to 'Edit', edit_acc_datum_path(acc_datum) %></td>
+        <td><%= link_to 'Destroy', acc_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Acc datum', new_acc_datum_path %>
