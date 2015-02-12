@@ -6,7 +6,7 @@ class CreateAccData < ActiveRecord::Migration
       t.float :x
       t.float :y
       t.float :z
-      t.string :note
+      t.string :csv
 
       t.timestamps
     end

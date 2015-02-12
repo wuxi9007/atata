@@ -207,10 +207,8 @@ input {
 
 .inlinebox {
   text-align: center;
-  z-index: 1;
-  position: absolute;
-  left:250px;
-  top: 150px;
+  position: relative;
+  margin-top: 80px;
   background-color: white;
 }
 

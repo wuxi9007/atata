@@ -28,7 +28,7 @@ class AccDataController < ApplicationController
 
     respond_to do |format|
       if @acc_datum.save
-        format.html { redirect_to @acc_datum, notice: 'Acc datum was successfully created.' }
+        format.html { redirect_to @acc_datum, notice: 'Your acc_data was successfully created, thank you!' }
         format.json { render action: 'show', status: :created, location: @acc_datum }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class AccDataController < ApplicationController
   def update
     respond_to do |format|
       if @acc_datum.update(acc_datum_params)
-        format.html { redirect_to @acc_datum, notice: 'Acc datum was successfully updated.' }
+        format.html { redirect_to @acc_datum, notice: 'Your acc_data was successfully created, thank you!' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -54,11 +54,15 @@ class AccDataController < ApplicationController
   # DELETE /acc_data/1
   # DELETE /acc_data/1.json
   def destroy
-    @acc_datum.destroy
+    AccDatum.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to acc_data_url }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    send_file 'public/my/download/2296SOverlook.csv'
   end
 
   private
@@ -69,6 +73,6 @@ class AccDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def acc_datum_params
-      params.require(:acc_datum).permit(:android_id, :time_stamp, :x, :y, :z, :note)
+      params.require(:acc_datum).permit(:android_id, :time_stamp, :x, :y, :z, :note, :csv)
     end
 end

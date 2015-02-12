@@ -41,6 +41,7 @@ gem 'bootstrap-sass',             '~> 2.3.1.0'
 gem 'bootstrap-colorpicker-rails'
 gem 'bootstrap-datetimepicker-rails'
 gem 'therubyracer'
+gem 'carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
