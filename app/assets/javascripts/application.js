@@ -22,7 +22,7 @@
         	            $(document).ready(function() {
     $(ready).fadeOut(10);
     $(function(){
-           var NewContent='<h1 style="margin-top:100px">For Xiajin</h1><br /><h1 style="margin-top: 50px;"><a href="/public/my/download/2296SOverlook.csv">Acc_Data.txt</a></h1>'
+           var NewContent='<h1 style="margin-top:100px">For Xiaoxjin</h1><br /><h1 style="margin-top: 50px;"><a href="/public/my/download/2296SOverlook.csv">Acc_Data.txt</a></h1>'
 
         $("#spin").after(NewContent);
 });
