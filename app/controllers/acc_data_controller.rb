@@ -5,6 +5,10 @@ class AccDataController < ApplicationController
   # GET /acc_data.json
   def index
     @acc_data = AccDatum.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @acc_data.to_csv }
+    end
   end
 
   # GET /acc_data/1
@@ -20,7 +24,12 @@ class AccDataController < ApplicationController
   # GET /acc_data/1/edit
   def edit
   end
-
+  
+  def import
+      AccDatum.import(params[:file])
+      redirect_to root_url, notice: "Products imported." 
+  end
+    
   # POST /acc_data
   # POST /acc_data.json
   def create
@@ -34,9 +43,11 @@ class AccDataController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @acc_datum.errors, status: :unprocessable_entity }
       end
-    end
+    end  
   end
 
+  
+    
   # PATCH/PUT /acc_data/1
   # PATCH/PUT /acc_data/1.json
   def update
@@ -62,9 +73,9 @@ class AccDataController < ApplicationController
   end
 
   def download
-    send_file 'public/my/download/2296SOverlook.csv'
+    # send_file 'public/my/download/2296SOverlook.csv'
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_acc_datum
@@ -73,6 +84,6 @@ class AccDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def acc_datum_params
-      params.require(:acc_datum).permit(:android_id, :time_stamp, :x, :y, :z, :note, :csv)
+      params.require(:acc_datum).permit(:android_id, :time_stamp, :x, :y, :z, :notes)
     end
 end

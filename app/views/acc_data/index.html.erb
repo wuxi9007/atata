@@ -23,7 +23,7 @@
         <td><%= acc_datum.x %></td>
         <td><%= acc_datum.y %></td>
         <td><%= acc_datum.z %></td>
-        <td><%= acc_datum.note %></td>
+        <td><%= acc_datum.notes %></td>
         <td><%= link_to 'Show', acc_datum %></td>
         <td><%= link_to 'Edit', edit_acc_datum_path(acc_datum) %></td>
         <td><%= link_to 'Destroy', acc_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,5 +33,10 @@
 </table>
 
 <br>
-
+<h2>Import Datasets</h2>
+<%= form_tag acc_data_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+  <% end %>
 <%= link_to 'New Acc datum', new_acc_datum_path %>
+

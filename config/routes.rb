@@ -1,10 +1,15 @@
 AccelerometerData::Application.routes.draw do
 
-  get '/' =>  'acc_data#new'
+  root  'acc_data#new'
   get 'download' =>  'static_pages#download'  
   get 'contact' =>  'static_pages#contact'
-  resources :acc_data
+  resources :acc_data do
+    collection { post :import }
+  end
   match "public/my/download/2296SOverlook.csv", :controller => "acc_data", :action => "download", via: :get
+  get "acc_data/index"
+  get 'SOverlookXiNiNengCaiDeDaoMaFuBuFu' =>  'static_pages#SOverlookXiNiNengCaiDeDaoMaFuBuFu'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

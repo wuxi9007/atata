@@ -1,5 +1,9 @@
 <% provide(:title, " | Upload") %>
 <h1>Here to Upload your acc_data!</h1>
 
-<%= render 'form' %>
+<h2>Import Data</h2>
 
+<%= form_tag import_acc_data_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
