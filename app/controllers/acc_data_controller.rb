@@ -1,6 +1,6 @@
 class AccDataController < ApplicationController
   before_action :set_acc_datum, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /acc_data
   # GET /acc_data.json
   def index
