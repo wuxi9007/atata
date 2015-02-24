@@ -84,6 +84,6 @@ class AccDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def acc_datum_params
-      params.require(:acc_datum).permit(:android_id, :time_stamp, :x, :y, :z, :notes)
+      params.fetch(:acc_datum, {}).permit(:android_id, :time_stamp, :x, :y, :z, :notes)
     end
 end
