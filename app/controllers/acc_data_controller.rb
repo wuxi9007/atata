@@ -51,9 +51,9 @@ class AccDataController < ApplicationController
             x:          x,
             y:          y,
             z:          z,
-            notes:      notes
-            height:     height
-            weight:     weight
+            notes:      notes,
+            height:     height,
+            weight:     weight,
         )
         @acc_datum.save!
       end
