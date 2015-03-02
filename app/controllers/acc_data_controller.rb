@@ -42,6 +42,8 @@ class AccDataController < ApplicationController
       y           = item[3]
       z           = item[4]
       notes       = item[5]
+      height      = item[6]
+      weight      = item[7]
       if (android_id != 'android_id')
         @acc_datum = AccDatum.new(
             android_id: android_id,
@@ -50,6 +52,8 @@ class AccDataController < ApplicationController
             y:          y,
             z:          z,
             notes:      notes
+            height:     height
+            weight:     weight
         )
         @acc_datum.save!
       end
@@ -104,6 +108,6 @@ class AccDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def acc_datum_params
-      params.fetch(:acc_datum, {}).permit(:android_id, :time_stamp, :x, :y, :z, :notes)
+      params.fetch(:acc_datum, {}).permit(:android_id, :time_stamp, :x, :y, :z, :notes, :height, :weight)
     end
 end
