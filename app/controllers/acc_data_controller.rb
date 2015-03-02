@@ -26,23 +26,43 @@ class AccDataController < ApplicationController
   end
   
   def import
-      AccDatum.import(params[:file])
+      #AccDatum.import(params[:file])
       redirect_to root_url, notice: "Products imported." 
   end
     
   # POST /acc_data
   # POST /acc_data.json
   def create
-    @acc_datum = AccDatum.new(acc_datum_params)
+    rows  = params[:file].split("\n")
+    rows.each do |row|
+      item        = row.split(",")
+      android_id  = item[0]
+      time_stamp  = item[1]
+      x           = item[2]
+      y           = item[3]
+      z           = item[4]
+      notes       = item[5]
+      if (android_id != 'android_id')
+        @acc_datum = AccDatum.new(
+            android_id: android_id,
+            time_stamp: time_stamp,
+            x:          x,
+            y:          y,
+            z:          z,
+            notes:      notes
+        )
+        @acc_datum.save!
+      end
+    end
 
     respond_to do |format|
-      if @acc_datum.save
+#      if @acc_datum.save
         format.html { redirect_to @acc_datum, notice: 'Your acc_data was successfully created, thank you!' }
         format.json { render action: 'show', status: :created, location: @acc_datum }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @acc_datum.errors, status: :unprocessable_entity }
-      end
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @acc_datum.errors, status: :unprocessable_entity }
+#      end
     end  
   end
 

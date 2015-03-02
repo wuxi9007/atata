@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224145457) do
+ActiveRecord::Schema.define(version: 20150302211911) do
 
   create_table "acc_data", force: true do |t|
     t.string   "android_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20150224145457) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "height"
+    t.string   "weight"
   end
 
   create_table "import", id: false, force: true do |t|
